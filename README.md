@@ -6,3 +6,4 @@ The file AFINN-111.txt contains a list of pre-computed sentiment scores. Each li
 Script  takes a file of tweets and returns the name of the happiest state as a string.
 
 Script written in R language, using "jsonlite", "dplyr" packages.
+Visualisation script uses "ggplot2", "rgdal" and "gmap" packages.
