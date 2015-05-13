@@ -3,8 +3,8 @@ library(ggplot2)
 library(ggmap)
 
 counties <- readOGR("D:/Program Files/R/Intern", layer = "states" )
-plotdata<-fortify(counties)
-plotdata$happiness<-0
+plotdata <- fortify(counties)
+plotdata$happiness <- 0
 for (i in 1:nrow(counties@data)){
   for (j in 1:nrow(hap.sum)){
   ifelse (as.character(counties@data[i, 5]) == hap.sum[j, 1],
@@ -12,7 +12,7 @@ for (i in 1:nrow(counties@data)){
 }
 }
   
-b<-bbox(counties)
+b <- bbox(counties)
 b[1, ] <- (b[1, ] - mean(b[1, ])) * 1.05 + mean(b[1, ])
 b[2, ] <- (b[2, ] - mean(b[2, ])) * 1.05 + mean(b[2, ])
 
