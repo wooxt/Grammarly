@@ -27,8 +27,9 @@ happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111
   happiness <- function (text, words){
     x <- 0
     for(y in 1:nrow(words)){
-      if(grepl(words[y, 1], text))
-        x[y] <- words[y,2] 
+      if(grepl(words[y, 1], text)){
+        x[y] <- words[y,2]
+        } 
       else next}
     happiness <- sum(x, na.rm = TRUE)
   return (happiness)
@@ -64,12 +65,13 @@ happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111
         longitude[j] <- json_data$coordinates[2]$coordinates[1]       
         usa.state[j] <- state(long = longitude[[j]], lat = latitude[[j]], states = states)
         happiness.lvl[j] <- happiness(words = words, text = text[j])
-        j<-j+1}
+        j <- j+1
+        }
     }
   }
   
   df <- data.frame(cbind(text, happiness.lvl, usa.state, language), stringsAsFactors = FALSE)
-  df<-df[df$usa.state != "Not USA", ]
+  df <- df[df$usa.state != "Not USA", ]
   grp <- group_by(df, usa.state)
   hap.sum <- summarize(grp, happiness = sum(as.numeric(happiness.lvl)))
   hap.states <- arrange(hap.sum, desc(happiness))[1,]
