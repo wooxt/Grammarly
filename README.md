@@ -14,5 +14,5 @@ Happiest_state - taking data as character. Uses strsplit and ifelse for searchin
 
 Happiest_state v2.0 - parsing data as JSON string. Work time - 12 min.
 
-Happiest_state v2.0 - parsing data as JSON string and looking for matches in coordinates, also script was optimised by decreasing loops to 1, else was written as functions. Work time - 2 min.
+Happiest_state v3.0 - parsing data as JSON string and looking for matches in coordinates, also script was optimised by decreasing loops to 1, else was written as functions. Work time - 2 min.
 
