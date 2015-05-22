@@ -15,8 +15,6 @@ happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111
   date          <- NULL
   text          <- NULL
   language      <- NULL
-  latitude      <- NULL
-  longitude     <- NULL
   happiness.lvl <- NULL
   usa.state     <- NULL
 
@@ -88,9 +86,7 @@ happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111
       if (min(states[ ,5]) < lat & lat < max(states[ ,4]) & max(states[ ,3]) > long & long > min(states[ ,2])) { # compare coordinates with USA boundary coordinates
         text[j] <- json_data$text # tweet text
         language[j] <- json_data$lang # tweet language
-        latitude[j] <- json_data$coordinates[2]$coordinates[2] # tweet latitude
-        longitude[j] <- json_data$coordinates[2]$coordinates[1] # tweet language
-        usa.state[j] <- state(long = longitude[[j]], lat = latitude[[j]], states = states) # compute state belongness
+        usa.state[j] <- state(long = long, lat = lat, states = states) # compute state belongness
         happiness.lvl[j] <- happiness(words = words, text = text[j]) # compute sentiment
         j <- j+1 #counter for iterations
       }
