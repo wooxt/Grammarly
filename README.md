@@ -16,3 +16,4 @@ Happiest_state v2.0 - parsing data as JSON string. Work time - 12 min.
 
 Happiest_state v3.0 - parsing data as JSON string and looking for matches in coordinates, also script was optimised by decreasing loops to 1, else was written as functions. Work time - 2 min.
 
+https://cloud.githubusercontent.com/assets/12424814/7780678/d83b6bae-00ea-11e5-9060-c496eb87ec9c.png
