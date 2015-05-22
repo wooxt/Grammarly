@@ -1,5 +1,14 @@
+# This is function that computes USA states sentiment based on Twitter data and AFINN word list. 
+# Function was developed for Grammarly internship by Teplyakov K.
 happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111.txt" , tweet.path="D:/Study/data-engineer-problem/twitter-stream.txt" ) {
-  library(jsonlite)
+# Args:
+# sentiment.file: file containing sentiment words with numerical valence
+# tweet.path: file containing Twitter data
+#
+# Returns:
+# two-word abbreviated state name with highest sentiment level
+
+  library(jsonlite) 
   library(dplyr)
 
   df            <- NULL
@@ -11,9 +20,12 @@ happiness <- function(sentiment.file = "D:/Study/data-engineer-problem/AFINN-111
   happiness.lvl <- NULL
   usa.state     <- NULL
 
-  state <- function(states, long, lat) {
-    for (l in 1:nrow(states)) {
-      if (states[l, 5] < lat & lat < states[l, 4] & states[l, 3] > long & long > states[l, 2]) {
+  state <- function(states, long, lat) { 
+  # function that determines if tweet was written in USA or not
+  # compares lantitude & longitude coordinates in tweet with coordinates of each state
+  # Args: states - file with coordinates of each USA state
+    for (l in 1:nrow(states)) { 
+      if (states[l, 5] < lat & lat < states[l, 4] & states[l, 3] > long & long > states[l, 2]) { 
         state <- states[l,1]
         break
       } else {
